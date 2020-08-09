@@ -60,6 +60,7 @@ btn.click(function (e) {
 dropdown.change(function () {
     let val = this.value;
 
+    ctx.beginPath();
     ctx.lineWidth = val; // 1,3,5,8
     ctx.stroke();
     ctx.closePath();
