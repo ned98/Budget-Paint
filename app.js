@@ -4,6 +4,7 @@ let ctx = canvas[0].getContext("2d");
 let isDrawing = false;
 let btn = $(".btn");
 let dropdown = $("#dropdown-content");
+let clearBtn = $(".btn-clear-canvas");
 
 ctx.lineCap = 'round';
 ctx.beginPath();
@@ -37,7 +38,7 @@ function Draw(x, y, x1, y1) {
     ctx.moveTo(x, y);
     ctx.lineTo(x1, y1);
     ctx.stroke();
-}
+};
 
 // COLOR CHANGER //
 colorPicker.change(function () {
@@ -46,7 +47,7 @@ colorPicker.change(function () {
     ctx.strokeStyle = color;
     ctx.stroke();
     ctx.closePath();
-})
+});
 
 // ERASER //
 btn.click(function (e) {
@@ -54,13 +55,22 @@ btn.click(function (e) {
     ctx.strokeStyle = "#ffffff";
     ctx.stroke();
     ctx.closePath();
-})
+});
 
 // DROPDOWN //
 dropdown.change(function () {
     let val = this.value;
 
+    ctx.beginPath();
     ctx.lineWidth = val; // 1,3,5,8
     ctx.stroke();
     ctx.closePath();
-})
+});
+
+// CLEAR BUTTON //
+clearBtn.click(function () {
+    let sizeWidth = ctx.canvas.clientWidth;
+    let sizeHeight = ctx.canvas.clientHeight;
+    ctx.beginPath();
+    ctx.clearRect(0, 0, sizeWidth, sizeHeight);
+});
