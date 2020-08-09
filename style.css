@@ -1,7 +1,10 @@
 #canvas {
-   
     border: 1px solid black;
     cursor: crosshair;
+}
+
+button {
+  cursor: pointer;
 }
 
 .btn {
@@ -26,3 +29,11 @@
   padding: 10px;
 }
 
+.clear-canvas {
+  position: relative;
+  display: inline-block;
+}
+
+.btn-clear-canvas {
+  padding: 10px;
+}
